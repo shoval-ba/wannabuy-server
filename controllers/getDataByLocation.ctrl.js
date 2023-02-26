@@ -205,11 +205,11 @@ exports.getDealsInMall = async (req, res) => {
       if (deals[i].user._id.equals(authData.userId)) myDeals.push(deals[i]);
     }
     else if (mall) {
-      if (deals[i].branch == mall && authData == undefined ) {
+      if (deals[i].branch == mall ) {
         dealsList.push(deals[i])
       }
     } 
-    else if (distance(location.latitude, location.longitude, deals[i].location.lat, deals[i].location.lon) < 0.5 && authData == undefined) {
+    else if (distance(location.latitude, location.longitude, deals[i].location.lat, deals[i].location.lon) < 0.5) {
         dealsList.push(deals[i])
       }
   }
