@@ -1,0 +1,29 @@
+service: wannabuy2-api
+runtime: nodejs18
+#env: flex
+env: standard
+
+# handlers:
+#     - url: /socket.io/(.*)
+#       script: auto
+
+# handlers:
+# - url: /.*
+# - static_dir: dist/
+
+# automatic_scaling:
+#   target_cpu_utilization: 0.6
+#   min_instances: 1
+#   max_instances: 1
+#   max_concurrent_requests: 1
+
+# handlers:
+#   - url: /api/(.*)
+#       script: auto
+
+manual_scaling:
+  instances: 1
+
+
+network:
+    session_affinity: true

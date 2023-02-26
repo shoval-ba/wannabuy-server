@@ -1,0 +1,66 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Shova\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\Python311\Scripts\;C:\Python311\;C:\Python310\Scripts\;C:\Python310\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\Shova\AppData\Local\Microsoft\WindowsApps;;C:\Users\Shova\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\Users\Shova\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.13.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.npmjs.org/axios: tunneling socket could not be established, cause=Hostname/IP does not match certificate's altnames: Host: registry.npmjs.org. is not in the cert's altnames: DNS:*.appspot-preview.com, DNS:appspot-preview.com, DNS:appspot.com, DNS:*.appspot.com, DNS:*.de.r.appspot.com, DNS:*.df.r.appspot.com, DNS:*.an.r.appspot.com, DNS:*.dt.r.appspot.com, DNS:*.du.r.appspot.com, DNS:*.el.r.appspot.com, DNS:*.as.r.appspot.com, DNS:*.et.r.appspot.com, DNS:*.ts.r.appspot.com, DNS:*.lz.r.appspot.com, DNS:*.ew.r.appspot.com, DNS:*.nw.r.appspot.com, DNS:*.ey.r.appspot.com, DNS:*.ez.r.appspot.com, DNS:*.nz.r.appspot.com, DNS:*.oa.r.appspot.com, DNS:*.nn.r.appspot.com, DNS:*.rj.r.appspot.com, DNS:*.uc.r.appspot.com, DNS:*.tz.r.appspot.com, DNS:*.ue.r.appspot.com, DNS:*.uk.r.appspot.com, DNS:*.uw.r.appspot.com, DNS:*.wl.r.appspot.com, DNS:*.wm.r.appspot.com, DNS:*.wn.r.appspot.com, DNS:*.lm.r.appspot.com, DNS:*.em.r.appspot.com, DNS:*.km.r.appspot.com, DNS:*.pd.r.appspot.com, DNS:*.ui.r.appspot.com, DNS:thinkwithgoogle.com, DNS:*.thinkwithgoogle.com, DNS:thinkwithgoogle.goog, DNS:*.thinkwithgoogle.goog, DNS:withgoogle.com, DNS:*.withgoogle.com, DNS:api.projectshield.withgoogle.com, DNS:withyoutube.com, DNS:*.withyoutube.com, DNS:app.google, DNS:*.app.google
+      at ClientRequest.onError (C:\Users\Shova\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:152376:17)
+      at Object.onceWrapper (node:events:628:26)
+      at ClientRequest.emit (node:events:513:28)
+      at TLSSocket.socketErrorListener (node:_http_client:496:9)
+      at TLSSocket.emit (node:events:513:28)
+      at emitErrorNT (node:internal/streams/destroy:151:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+      "name": "api",
+  	"private": true,
+  	"version": "0.0.0",
+      "type": "module",
+      "scripts": {
+          "start": "node server.js prod",
+          "dev": "nodemon server.js dev",
+          "client": "npm run dev --prefix client"
+      },
+      "engines": {
+          "node": "18.x.x"
+      },
+      "dependencies": {
+          
+         
+          "axios": "^1.3.0",
+          "cookie-parser": "^1.4.6",
+          "cors": "^2.8.5",
+          "custom-env": "^2.0.1",
+          "express": "^4.18.1",
+          "fetch": "^1.1.0",
+          "jsonwebtoken": "^8.5.1",
+          "jwt-decode": "^3.1.2",
+          "mongodb": "^4.12.0",
+          "path": "^0.12.7",
+          "pubsubhubbub": "^1.0.2",
+          "uuid": "^9.0.0"
+      },
+      "devDependencies": {
+          "nodemon": "^2.0.20"
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
