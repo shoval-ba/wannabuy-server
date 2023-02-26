@@ -99,10 +99,10 @@ exports.SendCode =  (req, res) => {
                         console.log("time is not good")
                         res.status(201).json({success:false});
                     }
-                    let newUser = await coll.find({token: token , pin :smsCode}).toArray();
-                    console.log(newUser)
-                    res.status(201).json({user:newUser[0]});
                 });
+                let newUser = await coll.find({token: token , pin :smsCode}).toArray();
+                console.log(newUser)
+                res.status(201).json({user:newUser[0]});
                
             }
         });
