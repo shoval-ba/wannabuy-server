@@ -1,6 +1,7 @@
 const env = process.argv[2] || "prod";
 
 require("custom-env").env(env);
+const serverless = require('serverless-http');
 
 const http = process.env === "prod" ? require("https") : require("http");
 const app = require("./app");
