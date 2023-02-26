@@ -95,6 +95,7 @@ exports.SendCode =  (req, res) => {
                         })
 
                         let newUser = await coll.find({token: token , pin :smsCode}).toArray();
+                        console.log(newUser)
                         res.status(201).json({user:newUser[0]});
                     }
                     else {
