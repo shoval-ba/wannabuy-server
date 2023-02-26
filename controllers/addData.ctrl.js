@@ -31,6 +31,7 @@ exports.addChat = async (req, res) => {
       message : message.message ,
       userId : ObjectID(message.user._id) ,
       timeSend : message.timeSend, 
+      orderTime : new Date().getTime() 
     }
     chatColl.insertOne(newMessage)
 }

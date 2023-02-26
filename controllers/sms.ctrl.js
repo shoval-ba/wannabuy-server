@@ -94,14 +94,14 @@ exports.SendCode =  (req, res) => {
                             maxAge: 15720000000, // 182 days
                         })
 
-                        let newUser = await coll.find({token: token , pin :smsCode}).toArray();
-                        console.log(newUser)
-                        res.status(201).json({user:newUser[0]});
                     }
                     else {
                         console.log("time is not good")
                         res.status(201).json({success:false});
                     }
+                    let newUser = await coll.find({token: token , pin :smsCode}).toArray();
+                    console.log(newUser)
+                    res.status(201).json({user:newUser[0]});
                 });
                
             }

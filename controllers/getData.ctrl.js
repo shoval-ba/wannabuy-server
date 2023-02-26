@@ -446,11 +446,13 @@ exports.getChats = async (req, res) => {
         as: 'user'
       }
     },
-    { $match: { dealId: ObjectID(req.body.dealId) } },
+    { $match: { dealId: ObjectID(req.body.dealId)}},
     {$unwind: '$user'} ,
+    {$sort : {orderTime:1} } ,
     {
       $project :{
-        userId :0
+        userId :0 ,
+        "user.jwtToken" :0
       }
     }
   ]).toArray();
