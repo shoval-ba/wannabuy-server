@@ -2,7 +2,7 @@
     "scripts": {
         "start": "node server.js prod",
         "dev": "nodemon server.js dev",
-        "build": "netlify-lambda build express" ,
+        "build": "netlify-lambda build server.js" ,
         "client": "npm run dev --prefix client"
     },
     "engines": {

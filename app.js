@@ -82,13 +82,4 @@ app.use("/api/getNames", getNames);
 app.use("/api/delete", deleteData);
 app.use("/api/getDataByLocation", dataByLocation);
 
-app.use("/.netlify/functions/server", Sms);
-app.use("/.netlify/functions/server", GetData);
-app.use("/.netlify/functions/server", addData);
-app.use("/.netlify/functions/server", updateData);
-app.use("/.netlify/functions/server", getNames);
-app.use("/.netlify/functions/server", deleteData);
-app.use("/.netlify/functions/server", dataByLocation); 
-
 module.exports = app;
-module.exports.handler = serverless(app);
