@@ -63,6 +63,7 @@ exports.SendCode =  (req, res) => {
     const token = req.body.token;
     let phoneNumber = "";
     let userId = "";
+    let newUser;
    
     vonage.verify.check({
         request_id: verifyRequestId,
@@ -79,9 +80,15 @@ exports.SendCode =  (req, res) => {
                 await coll.findOne({token: token , pin :verifyRequestId , usedToken: false}, async function(err, result) {
                     phoneNumber = result.phone;
                     userId = result._id;  
+                    const jwtToken = createToken(userId , phoneNumber);
+                    newUser = {
+                        _id: userId , 
+                        name:result.name , 
+                        token: token ,
+                        jwtToken : jwtToken
+                    }
                     if (err) throw err;
                     else if(result.tokenInitiatedOn + 300000 > new Date().getTime()) {
-                        const jwtToken = createToken(userId , phoneNumber);
                         let check = { token: token , pin :verifyRequestId , usedToken: false};
                         let newValues = { $set : {pin : smsCode ,usedToken: true, jwtToken: jwtToken}}
                         await coll.updateOne(check ,newValues , function(err, res) {
@@ -94,19 +101,26 @@ exports.SendCode =  (req, res) => {
                             maxAge: 15720000000, // 182 days
                         })
 
+                        res.status(201).json({user:newUser});
                     }
                     else {
                         console.log("time is not good")
                         res.status(201).json({success:false});
                     }
                 });
-                let newUser = await coll.find({token: token , pin :smsCode}).toArray();
-                console.log(newUser)
-                res.status(201).json({user:newUser[0]});
-               
+                // let newUser = await coll.find({token: token , pin :smsCode}).toArray();
+    
             }
         });
 };
+
+// exports.getUser= async (req , res)=>{
+//     const dbConnection = await connectToDatabase();
+//     const db = dbConnection.db;
+//     const coll = await db.collection("users"); // users-collection name
+//     let user = coll.findOne({token : req.body.token})
+//     res.status(201).json({user:user});
+// }
 
 // exports.CancelCode = async (req, res) => {
 //     vonage.verify.control({
